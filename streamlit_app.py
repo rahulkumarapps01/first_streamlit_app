@@ -62,10 +62,17 @@ streamlit.dataframe(my_data_row)
 
 streamlit.text("What fruit would you like to add?")
 
-fruit_added = streamlit.text_input('jackfruit')
-my_data_row_dup = my_data_row.append(fruit_added)
-streamlit.write('The user entered ', fruit_added)
+add_my_fruit = streamlit.text_input('jackfruit')
+my_data_row_dup = my_data_row.append(add_my_fruit)
+streamlit.write('The user entered ', add_my_fruit)
+
+my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values ('from streamlit')")
 streamlit.dataframe(my_data_row_dup)
+
+#fruit_added = streamlit.text_input('jackfruit')
+#my_data_row_dup = my_data_row.append(fruit_added)
+#streamlit.write('The user entered ', fruit_added)
+#streamlit.dataframe(my_data_row_dup)
 #fruits_added = streamlit.multiselect("Pick some fruits:", list(my_data_row.index), ['jackfruit'])
 #fruits_to_show = my_fruit_list.loc[fruits_added]
 #streamlit.dataframe(fruits_to_show)
